@@ -1,67 +1,97 @@
 
-# Telegram LLaMA Reminder Bot
+# Telegram LLaMA Remind Bot
 
-This is a Telegram bot that allows users to set reminders using natural language commands. The bot leverages the LLaMA language model to understand and parse user inputs for setting reminders. It is designed to recognize the time, date, and content of the reminder from a user's message and then schedule it accordingly.
+This project is a Telegram bot built using Python and the LangChain framework, integrated with LLaMA3 and Ollama for natural language understanding and reminder scheduling. The bot enables users to send reminder requests in natural language, which it processes and schedules for future notifications.
 
 ## Features
 
-- **Natural Language Processing**: Utilizes LLaMA and LangChain for parsing natural language inputs.
-- **Reminders**: Allows users to schedule reminders that the bot will send back to them at the specified time.
-- **Flexible Scheduling**: Supports different formats for specifying date and time.
+- **Natural Language Understanding**: Parses reminders from user messages using LLaMA and LangChain.
+- **Reminder Scheduling**: Schedules reminders based on extracted date and time.
+- **Multi-Functionality**: Can handle various types of reminder formats.
+- **User Interaction**: Reads responses from users to confirm scheduled reminders.
 
-## Getting Started
+## How It Works
 
-### Prerequisites
+1. **User Interaction**: The user sends a reminder request in natural language.
+2. **Information Extraction**: The bot uses LangChain and LLaMA to extract relevant details like date, time, and message.
+3. **Reminder Scheduling**: The bot schedules the reminder for the extracted time.
+4. **Notification**: Sends the reminder back to the user at the scheduled time.
 
-- Python 3.8 or higher
-- A Telegram bot token (create one using the [BotFather](https://core.telegram.org/bots#botfather) on Telegram).
+## Project Structure
 
-### Installation
+```
+telegram-llama-remind-bot/
+│
+├── bot/
+│   ├── __init__.py       # Initializes the bot module
+│   ├── handlers.py       # Functions to handle Telegram events
+│   ├── scheduler.py      # Manages the scheduling of reminders
+│   └── utils.py          # Utility functions for message parsing
+│
+├── core/
+│   ├── __init__.py       # Initializes the core module
+│   ├── llama_integration.py # Handles LLaMA and LangChain interactions
+│   ├── ollama_integration.py # Manages Ollama integration
+│   └── parser.py         # Parses user input for reminder details
+│
+├── tests/                # Unit tests for various functionalities
+├── requirements.txt      # Dependencies for the project
+└── README.md             # Project documentation
+```
+
+## Setup
 
 1. Clone the repository:
-
    ```bash
    git clone https://github.com/ishaicahila/telegram-llama-remind-bot.git
    cd telegram-llama-remind-bot
    ```
-
-2. Install the required dependencies:
-
+2. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate   # On Windows, use `venv\Scripts\activate`
+   ```
+3. Install the dependencies:
    ```bash
    pip install -r requirements.txt
    ```
-
-3. Set up your Telegram bot token:
-
-   Create a `.env` file in the root directory of the project and add your Telegram bot token:
-
-   ```env
-   TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
-   ```
-
-4. Run the bot:
-
+4. Set up your Telegram bot token in a `.env` file:
    ```bash
-   python bot.py
+   TELEGRAM_TOKEN=<Your Telegram Bot Token>
+   ```
+5. Run the bot:
+   ```bash
+   python bot/main.py
    ```
 
 ## Usage
 
-- Start a chat with your bot on Telegram.
-- Send a message with a reminder request, e.g., "Remind me to call John tomorrow at 10 AM."
-- The bot will confirm the reminder and notify you at the specified time.
+1. Start a conversation with your bot on Telegram.
+2. Send a message like: 
+   ```
+   "Remind me to call John at 3 PM tomorrow."
+   ```
+3. The bot will parse the request and schedule the reminder.
+4. You will receive the reminder at the specified time.
 
-## Project Structure
+## Requirements
 
-- `bot.py`: The main bot script that handles incoming messages and sets reminders.
-- `reminder_handler.py`: Contains the logic for parsing messages and scheduling reminders.
-- `requirements.txt`: Lists the Python dependencies required for the project.
-- `README.md`: This file, containing information about the project and how to use it.
+- Python 3.8+
+- Telegram Bot API
+- LangChain
+- LLaMA3
+- Ollama
+
+Refer to the `requirements.txt` for more details.
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Commit your changes (`git commit -am 'Add new feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Create a new Pull Request.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
