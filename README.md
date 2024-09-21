@@ -64,7 +64,7 @@ telegram-llama-remind-bot/
    ```
 4. Set up your Telegram bot token in a `.env` file:
    ```bash
-   TELEGRAM_TOKEN=<Your Telegram Bot Token>
+   BOT_TOKEN=<Your Telegram Bot Token>
    ```
 5. Run the bot:
    ```bash
