@@ -7,14 +7,13 @@ This project is a Telegram bot built using Python and the LangChain framework, i
 
 - **Natural Language Understanding**: Parses reminders from user messages using LLaMA and LangChain.
 - **Reminder Scheduling**: Schedules reminders based on extracted date and time.
-- **Multi-Functionality**: Can handle various types of reminder formats.
 - **User Interaction**: Reads responses from users to confirm scheduled reminders.
 
 ## How It Works
 
 1. **User Interaction**: The user sends a reminder request in natural language.
 2. **Information Extraction**: The bot uses LangChain and LLaMA to extract relevant details like date, time, and message.
-3. **Reminder Scheduling**: The bot schedules the reminder for the extracted time.
+3. **Reminder Scheduling**: The bot schedules the reminder for the extracted time, and stores it in the SQLite3 Database. 
 4. **Notification**: Sends the reminder back to the user at the scheduled time.
 
 ## Project Structure
@@ -35,7 +34,8 @@ telegram-llama-remind-bot/
 │   ├── __init__.py           # Initializes the engine module
 │   └── generator.py          # Handles LLaMA and LangChain interactions
 │
-├── exceptions/               # Custom exception definitions
+├── exceptions/               
+│   └── exceptions.py         # Custom exception definitions
 │
 ├── schedule/
 │   ├── __init__.py           # Initializes the schedule module
