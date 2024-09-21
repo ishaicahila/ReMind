@@ -18,25 +18,32 @@ This project is a Telegram bot built using Python and the LangChain framework, i
 4. **Notification**: Sends the reminder back to the user at the scheduled time.
 
 ## Project Structure
-
 ```
 telegram-llama-remind-bot/
 │
 ├── bot/
-│   ├── __init__.py       # Initializes the bot module
-│   ├── handlers.py       # Functions to handle Telegram events
-│   ├── scheduler.py      # Manages the scheduling of reminders
-│   └── utils.py          # Utility functions for message parsing
+│   ├── __init__.py           # Initializes the bot module
+│   ├── config.py             # Bot configuration settings
+│   ├── logger.py             # Logger setup for the bot
+│   ├── main.py               # Main entry point for the bot
+│   └── handlers/
+│        ├── __init__.py      # Initializes the handlers module
+│        ├── commands.py      # Command handlers for the bot
+│        └── messages.py      # Message handlers for user interactions
 │
-├── core/
-│   ├── __init__.py       # Initializes the core module
-│   ├── llama_integration.py # Handles LLaMA and LangChain interactions
-│   ├── ollama_integration.py # Manages Ollama integration
-│   └── parser.py         # Parses user input for reminder details
+├── engine/
+│   ├── __init__.py           # Initializes the engine module
+│   └── generator.py          # Handles LLaMA and LangChain interactions
 │
-├── tests/                # Unit tests for various functionalities
-├── requirements.txt      # Dependencies for the project
-└── README.md             # Project documentation
+├── exceptions/               # Custom exception definitions
+│
+├── schedule/
+│   ├── __init__.py           # Initializes the schedule module
+│   ├── scheduler.py          # Manages reminder scheduling
+│   └── helpers.py            # Helper functions for scheduling
+│
+├── requirements.txt          # Dependencies for the project
+└── README.md                 # Project documentation
 ```
 
 ## Setup
