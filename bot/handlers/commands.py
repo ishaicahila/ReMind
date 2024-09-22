@@ -5,6 +5,9 @@ from bot.logger import logger
 from bot.config import ASK_REMINDER, CONFIRMATION
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE)-> None:
+    """
+        Start command handler
+    """
     logger.info('start')
     user = update.effective_user
     await update.message.reply_html(
@@ -13,6 +16,9 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE)-> None:
     )
 
 async def start_reminder_conversation(update: Update, context = CallbackContext) -> None: 
+    """
+       Entry point to reminder conversation. returns ASK_REMINDER state..
+    """
     logger.info('start reminder conversation')
     await update.message.reply_text("What would you like me to remind you and when ? ")
     return ASK_REMINDER

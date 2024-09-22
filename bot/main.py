@@ -19,6 +19,9 @@ init_db
 
 
 def main() -> None: 
+    """
+        The main function. adding the handlers to the dispatcher, initializing the
+    """
     logger.info("adding handlers")
     application.add_handler(CommandHandler("start", start))
     application.bot_data["job_scheduler"] = job_scheduler

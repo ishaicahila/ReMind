@@ -10,10 +10,17 @@ from exceptions import exceptions
 
 
 async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE)-> None:
+    """
+       Basic Deprecated echo method, was used for POC.
+    """
     logger.info("echo")
     await update.message.reply_text(update.message.text)
 
 async def handle_reminder(update: Update, context = CallbackContext) -> None: 
+    """
+       Enter this when state == ASK_REMINDER.  sending the message for parsing, adding the temp reminder to the user context. 
+       When done, prompting a confirmation message and return CONFIRMATION state.
+    """
     try: 
         logger.info('reminder handeling')
 
